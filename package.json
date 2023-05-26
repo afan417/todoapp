@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "vercel-build": "prisma db push && next build",
     "prisma:generate": "prisma generate",
     "lint": "eslint --fix .",
     "format": "prettier '{components,content,pages,styles}/**/*.{css,js}' --write",
