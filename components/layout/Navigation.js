@@ -6,7 +6,7 @@ const NavItem = ({ children, href }) => {
   return (
     <li className="w-full md:w-auto md:mr-6">
       <Link
-        className="block py-4 md:py-0 border-b border-gray-200 md:border-b-0 md:border-transparent"
+        className="block py-4 border-b border-gray-200 md:py-0 md:border-b-0 md:border-transparent"
         href={href}
       >
         {children}
@@ -21,15 +21,15 @@ export default function Navigation() {
   return (
     <div className="bg-white shadow-lg">
       <div className="container">
-        <div className="flex flex-row py-6 justify-between">
+        <div className="flex flex-row justify-between py-6">
           <div className="md:w-1/2">
-            <p className="font-bold text-gray-800 text-2xl">Next Starter</p>
+            <p className="text-2xl font-bold text-gray-800">Next Starter</p>
           </div>
-          <div className="w-1/4 md:hidden block">
+          <div className="block w-1/4 md:hidden">
             <label htmlFor="menu-toggle" className="cursor-pointer">
               <SVG
                 src="/svg/menu.svg"
-                className="fill-current text-black w-6 h-6"
+                className="w-6 h-6 text-black fill-current"
                 onClick={() => setMenu(!menu)}
               />
             </label>
@@ -40,7 +40,7 @@ export default function Navigation() {
               menu ? ' flex' : ' hidden'
             }`}
           >
-            <ul className="flex w-full p-5 flex-col md:w-auto md:p-0 md:flex-row items-center">
+            <ul className="flex flex-col items-center w-full p-5 md:w-auto md:p-0 md:flex-row">
               <NavItem href="/">Home</NavItem>
               <NavItem href="/about">About</NavItem>
             </ul>

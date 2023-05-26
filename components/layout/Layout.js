@@ -1,7 +1,4 @@
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
-
-const Navigation = dynamic(() => import('@/components/layout/Navigation'), { ssr: false })
 
 export default function Layout({ children, title = null }) {
   const dev = process.env.NODE_ENV === 'development'
@@ -21,8 +18,6 @@ export default function Layout({ children, title = null }) {
         <link rel="icon" href="/favicons/fav-228.ico" sizes="228x228" />
       </Head>
       <div className={`font-sans antialiased flex flex-col ${dev ? 'debug-screens' : ''}`}>
-        {/* <Navigation /> */}
-
         {children}
       </div>
     </>
