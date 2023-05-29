@@ -1,14 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import AddTodoForm from '@/components/AddTodoForm'
 import Todo from '@/components/Todo'
 import Layout from '@/layout/Layout'
 
-import prisma from '../prisma'
-
-export default function Home(props) {
+export default function Home() {
   const [showAddTodo, setShowAddTodo] = useState(false)
-  const [todos, setTodos] = useState(props.todos)
+  const [todos, setTodos] = useState([])
+  const [loading, setLoading] = useState(true)
 
   function addTodo(todo) {
     setTodos([...todos, todo])
@@ -25,6 +24,17 @@ export default function Home(props) {
     }
   }
 
+  useEffect(() => {
+    async function fetchTodos() {
+      const response = await fetch('/api/todos')
+      const data = await response.json()
+      setTodos(data.todos)
+      setLoading(false)
+    }
+
+    fetchTodos()
+  }, [])
+
   return (
     <Layout title="Home">
       <div className="min-h-screen bg-gray-50">
@@ -39,7 +49,9 @@ export default function Home(props) {
               </button>
             </div>
 
-            {showAddTodo ? (
+            {loading ? (
+              <p>Loading...</p>
+            ) : showAddTodo ? (
               <div className="mt-4">
                 <AddTodoForm addTodo={addTodo} />
               </div>
@@ -64,15 +76,3 @@ const EmptyState = () => (
     <h1 className="text-2xl font-bold text-gray-500">You do not have any todos added.</h1>
   </div>
 )
-
-export const getServerSideProps = async () => {
-  const todos = await prisma.todo.findMany({
-    orderBy: {
-      completed: 'asc',
-    },
-  })
-
-  return {
-    props: { todos },
-  }
-}
