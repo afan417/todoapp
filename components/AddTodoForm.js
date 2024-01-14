@@ -6,6 +6,8 @@ const AddTodo = ({ addTodo }) => {
   const [message, setMessage] = useState('')
 
   const handleSubmit = (e) => {
+    console.log('test')
+
     e.preventDefault()
     if (!title) {
       setError('Title is required')

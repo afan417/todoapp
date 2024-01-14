@@ -3,6 +3,8 @@ import { useState } from 'react'
 import SVG from 'react-inlinesvg'
 
 const NavItem = ({ children, href }) => {
+  console.log('test')
+
   return (
     <li className="w-full md:w-auto md:mr-6">
       <Link
