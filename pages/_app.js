@@ -10,6 +10,8 @@ const poppins = Poppins({
 })
 
 function MyApp({ Component, pageProps }) {
+  console.log('test')
+
   return (
     <>
       <DefaultSeo
