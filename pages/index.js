@@ -35,6 +35,7 @@ export default function Home() {
     fetchTodos()
   }, [])
 
+  console.log('test')
   return (
     <Layout title="Home">
       <div className="min-h-screen bg-gray-50">
