@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const Todo = (props) => {
   const [todo, setTodo] = useState(props.todo)
 
+  console.log('test')
   const updateTodo = async () => {
     const data = {
       completed: true,
