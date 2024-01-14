@@ -1,6 +1,8 @@
 import prisma from '../../../prisma'
 
 export default async function handle(req, res) {
+  console.log('test')
+
   if (req.method == 'PUT') {
     // update a todo.
 
