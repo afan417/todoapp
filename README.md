@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) todo app project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), that connects to a Postgres database and performs CRUD operations (create, read, update, delete).
+## Todo App
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), that connects to a Postgres database and performs CRUD operations (create, read, update, delete).
 
 ## Getting Started
 
